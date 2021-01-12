@@ -9,7 +9,7 @@ SITE_URL ?= http://localhost:8000
 USER_ID?=1000
 GROUP_ID?=1000
 
-.PHONY: build setup run clean shell test jest pytest black flow lint-frontend loaddb build-frontend build-frontend-w
+.PHONY: build setup run clean shell test test-frontend jest pytest flake8 black prettier check-prettier format flow lint-frontend dumpdb loaddb build-frontend build-frontend-w sync-projects requirements
 
 help:
 	@echo "Welcome to Pontoon!\n"
@@ -30,10 +30,12 @@ help:
 	@echo "  format           Runs formatters for both the frontend and Python code"
 	@echo "  flow             Runs the Flow type checker on the frontend code"
 	@echo "  lint-frontend    Runs a code linter on the frontend code (Translate.Next)"
+	@echo "  dumpdb           Create a postgres database dump with timestamp used as file name"
 	@echo "  loaddb           Load a database dump into postgres, file name in DB_DUMP_FILE"
 	@echo "  build-frontend   Builds the frontend static files"
 	@echo "  build-frontend-w Watches the frontend static files and builds on change"
-	@echo "  sync-projects    Runs the synchronization task on all projects\n"
+	@echo "  sync-projects    Runs the synchronization task on all projects"
+	@echo "  requirements     Compiles all requirements files with pip-compile\n"
 
 .docker-build:
 	make build
@@ -90,6 +92,9 @@ lint-frontend:
 shell:
 	"${DC}" run --rm webapp //bin/bash
 
+dumpdb:
+	"${DOCKER}" exec -t `"${DC}" ps -q postgresql` pg_dumpall -c -U pontoon > dump_`date +%d-%m-%Y"_"%H_%M_%S`.sql
+
 loaddb:
 	# Stop connections to the database so we can drop it.
 	-"${DC}" stop webapp
@@ -110,3 +115,6 @@ build-frontend-w:
 
 sync-projects:
 	"${DC}" run --rm webapp .//manage.py sync_projects $(opts)
+
+requirements:
+	"${DC}" run --rm webapp //app/docker/compile_requirements.sh

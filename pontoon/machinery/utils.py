@@ -7,7 +7,7 @@ from functools import reduce
 import Levenshtein
 import requests
 from django.conf import settings
-from django.db.models import Q
+from django.db.models import F, Q
 
 import pontoon.base as base
 
@@ -71,23 +71,28 @@ def get_concordance_search_data(text, locale):
     )
     search_query = reduce(operator.and_, search_filters)
 
-    search_query_results = base.models.TranslationMemoryEntry.objects.filter(
-        search_query
-    ).values_list("source", "target", "project__name")
+    search_results = (
+        base.models.TranslationMemoryEntry.objects.filter(search_query)
+        .annotate(
+            entity_pk=F("entity__pk"),
+            project_name=F("project__name"),
+            project_slug=F("project__slug"),
+        )
+        .values("source", "target", "entity_pk", "project_name", "project_slug")
+        .distinct()
+    )
 
-    search_results = [
-        {
-            "source": source,
-            "target": target,
-            "project_name": project_name,
-            "quality": max(
-                int(round(Levenshtein.ratio(text, target) * 100)),
-                int(round(Levenshtein.ratio(text, source) * 100)),
+    def sort_by_quality(entity):
+        """Sort the results by their best Levenshtein distance from the search query"""
+        return (
+            max(
+                int(round(Levenshtein.ratio(text, entity["target"]) * 100)),
+                int(round(Levenshtein.ratio(text, entity["source"]) * 100)),
             ),
-        }
-        for source, target, project_name in search_query_results
-    ]
-    return sorted(search_results, key=lambda e: e["quality"], reverse=True)
+            entity["target"],
+        )
+
+    return sorted(search_results, key=sort_by_quality, reverse=True)
 
 
 def get_translation_memory_data(text, locale, pk=None):
