@@ -1,6 +1,6 @@
 - Feature Name: Concordance Search
 - Created: 2020-07-07
-- Associated Bug: https://bugzilla.mozilla.org/show_bug.cgi?id=1514698
+- Associated Bug: <https://bugzilla.mozilla.org/show_bug.cgi?id=1514698>
 
 # Summary
 
@@ -19,6 +19,7 @@ Alternatively, you can switch to the All Projects view and use the string list s
 This feature changes the way "Search in Machinery" searches Translation Memory. Instead of searching for fuzzy matches of source strings stored in TM, it searches source strings and translations stored in TM with the same approach that is used in the string list. Every search keyword is searched separately, unless it's part of a phrase within double quotes - in this case the entire phrase within the quotes is searched as a whole.
 
 Some examples of search queries and corresponding search matches among the two strings mentioned above:
+
 * File -> Select a `file`... & Source `file` uploaded
 * Source file -> Select a `file`... & `Source` `file` uploaded
 * "Source file" -> `Source file` uploaded
