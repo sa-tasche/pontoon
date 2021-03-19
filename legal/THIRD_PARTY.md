@@ -9,6 +9,7 @@ This page details all runtime dependencies of `pontoon`.
 | License | Count |
 | ------- | ----- |
 
+
 ## Contact
 
 Please send any questions or inquires to [sara.dolores@gmail.com](mailto:sara.dolores@gmail.com).
@@ -16,6 +17,5 @@ Please send any questions or inquires to [sara.dolores@gmail.com](mailto:sara.do
 ---
 
 More Information and Contact
-
 - mitgedanken
   - [Github-Page](https://mitgedanken.github.io/)
