@@ -7,7 +7,6 @@ uses version-control systems for storing translations.
 
 [📚 **Documentation**](https://mozilla-pontoon.readthedocs.io/)
 
-
 ## Installing Pontoon
 
 If you are looking to host your own instance of Pontoon, there are several ways to do so.
@@ -27,7 +26,6 @@ testing for example, see our
 [Developer Setup using Docker](https://mozilla-pontoon.readthedocs.io/en/latest/dev/setup.html).
 Please note that you should **not** deploy a production instance with Docker.
 
-
 ## Contributing to Pontoon
 
 Do you want to help us make Pontoon better? We are very glad!
@@ -43,8 +41,8 @@ If you want to go further, you can:
 * File a [bug](https://bugzilla.mozilla.org/enter_bug.cgi?product=Webtools&component=Pontoon&rep_platform=all&op_sys=all)
 * Check [existing bugs](https://bugzilla.mozilla.org/buglist.cgi?product=Webtools&component=Pontoon&resolution=---&list_id=13740920)
 * See Mozilla's Pontoon servers:
-    * [Staging](https://mozilla-pontoon-staging.herokuapp.com/)
-    * [Production](https://pontoon.mozilla.org/)
+  * [Staging](https://mozilla-pontoon-staging.herokuapp.com/)
+  * [Production](https://pontoon.mozilla.org/)
 * For discussing Pontoon's development, get in touch with us on [chat.mozilla.org](https://chat.mozilla.org/#/room/#pontoon:mozilla.org)
 * For feedback, support, and 3rd party deployments, check out [Discourse](https://discourse.mozilla.org/c/pontoon/)
 
@@ -53,7 +51,6 @@ If you want to go further, you can:
 This software is licensed under the
 [New BSD License](https://creativecommons.org/licenses/BSD/). For more
 information, read [LICENSE](https://github.com/mozilla/pontoon/blob/master/LICENSE).
-
 
 ## Screenshots
 
