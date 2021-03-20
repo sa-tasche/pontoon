@@ -9,7 +9,6 @@ directly, as well as to write its own changes back.
 
 This document describes that sync process in detail.
 
-
 ## Triggering a Sync
 
 Pontoon is assumed to run a sync once an hour, although this is configurable.
@@ -17,7 +16,6 @@ When a sync is triggered, Pontoon finds all projects that are not marked as
 disabled within the admin interface and schedules a sync task for each one.
 Sync tasks are executed in parallel, using [Celery](http://www.celeryproject.org/)
 to manage the worker queue.
-
 
 ## Syncing a Project
 
@@ -46,7 +44,6 @@ The second step is syncing translations:
   changes, no commit is made.
 - Clean up leftover information in the database.
 
-
 ## Comparing Entities
 
 The heart of the syncing process is comparing an entity stored in Pontoon's
@@ -69,7 +66,6 @@ The comparison takes into account:
 The actual comparison logic goes something like this:
 
 ![](./sync-process-diagram.png)
-
 
 ## Executing Changes
 
