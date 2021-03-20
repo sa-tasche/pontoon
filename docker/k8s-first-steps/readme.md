@@ -87,13 +87,13 @@ END$$;
 
 ##### for each project
 
-  - create project using the web ui, see: <https://mozilla-l10n.github.io/documentation/tools/pontoon/adding_new_project.html>
+- create project using the web ui, see: <https://mozilla-l10n.github.io/documentation/tools/pontoon/adding_new_project.html>
 
 - further **administration** via Django: <http://127.0.0.1:8000/>__a/__
 
 #### NOTES
 
-- don't try to run pontoon in a subfolder domain, like apigee does. (e.g. <https://mydomain.com/pontoon/>). It seems only to support running on domain level: **https://mydomain.com/~~pontoon/~~**
+- don't try to run pontoon in a subfolder domain, like apigee does. (e.g. <<https://mydomain.com/>pontoon/>). It seems only to support running on domain level: **https://mydomain.com/~~pontoon/~~**
   you may use subdomains --> <https://pontoon.mydomain.com/>
 
 ### deployment on k8s
