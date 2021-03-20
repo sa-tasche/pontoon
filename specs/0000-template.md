@@ -1,6 +1,6 @@
 - Feature Name: Name Of The Feature
 - Created: YYYY-MM-DD
-- Associated Bug: https://bugzilla.mozilla.org/show_bug.cgi?id=BUG-ID
+- Associated Bug: <https://bugzilla.mozilla.org/show_bug.cgi?id=BUG-ID>
 
 # Summary
 
