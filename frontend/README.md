@@ -45,7 +45,6 @@
     </tr>
 </table>
 
-
 ## Code architecture
 
 ### Where code goes
@@ -68,7 +67,6 @@ Here are the files commonly found in a module:
 - `components/` — a folder containing components, with file names in CamelCase
 
 Of course, more can be added if needed. For example, modules with a high number of action types might want to have an `actionTypes.js` file to separate them from actions.
-
 
 ## Running and deploying
 
@@ -95,12 +93,11 @@ A common case during development is to have 3 terminals open: one for the dev se
 
 #### Enabling websocket and warm-reloading for dev
 
-Currently websocket requests are redirected by Django to the webpack server. Sadly, by default major browsers do not support websocket redirection. To enable it in Firefox, go to `about:config` and turn `network.websocket.auto-follow-http-redirect` to `true`. Note that there is a bug filed to get rid of that option entirely: https://bugzilla.mozilla.org/show_bug.cgi?id=1052909
+Currently websocket requests are redirected by Django to the webpack server. Sadly, by default major browsers do not support websocket redirection. To enable it in Firefox, go to `about:config` and turn `network.websocket.auto-follow-http-redirect` to `true`. Note that there is a bug filed to get rid of that option entirely: <https://bugzilla.mozilla.org/show_bug.cgi?id=1052909>
 
 As far as we know, it is not possible to make that work in Chrome or Edge. This only impacts development, as there's no hot reloading in production.
 
 If you can't turn on websockets, you will see errors in the console (that's not very impacting) and you'll have to reload your Django server regularly, because polling requests don't close, and after so many web page reloads, the Django process won't be able to accept new requests.
-
 
 ## Dependencies
 
@@ -134,14 +131,13 @@ To upgrade dependency to a specific version, run the following commands:
 
 Note that, in order to add new dependencies, you need to have `yarn` installed and perform the actions locally (outside docker). You might want to remove the `node_modules` folder after you've run the install or update command (and the `package.json` and `yarn.lock` files have been updated) and before rebuilding the image, to reduce the size of the docker context.
 
-
 ## Type checking
 
 Our code uses Flow to enforce type checking. This is a good way to significantly improve resilience to bugs, and it removes some burden from unit tests (because Flow ensures that we use functions and components correctly).
 
 To check for Flow issues during development while you edit files, run:
 
-    $ make flow
+    make flow
 
 To learn more, you can read [Why use static types in JavaScript?](https://medium.freecodecamp.org/why-use-static-types-in-javascript-part-1-8382da1e0adb) or the official [Flow documentation](https://flow.org/en/docs/). Additionally, you can read through the [web-ext guide](https://github.com/mozilla/web-ext/blob/master/CONTRIBUTING.md#check-for-flow-errors) for hints on how to solve common Flow errors.
 
@@ -149,14 +145,13 @@ Until we define our set of rules, please refer to the [addons team's Flow manife
 
 Note that Flow is good at extrapolating types from the standard library and common tools like React. Only put explicit types where needed. For example, it is not necessary to express that the `render` method of a component return a `React.Node`, as Flow will extrapolate that and check it even if you don't.
 
-
 ## Testing
 
 Tests are run using [`jest`](https://facebook.github.io/jest/). We use [`enzyme`](http://airbnb.io/enzyme/docs/api/) for mounting React components and [`sinon`](http://sinonjs.org/) for mocking.
 
 To run the test suite, use:
 
-    $ make test-frontend
+    make test-frontend
 
 It will start an auto-reloading test runner, that will refresh every time you make a change to the code or tests.
 
@@ -177,7 +172,6 @@ it('does something specific', () => {
 ```
 
 We use `jest`'s [`expect`](https://facebook.github.io/jest/docs/en/expect.html) assertion tool.
-
 
 ## Localization
 
@@ -226,7 +220,6 @@ In order to easily verify that a string is effectively localized, you can turn o
 Pseudo-localization turns every supported string into a different version of itself. We support two modes: "accented" (transforms "Accented English" into "Ȧȧƈƈḗḗƞŧḗḗḓ Ḗḗƞɠŀīīşħ") and "bidi" (transforms "Reversed English" into "‮ᴚǝʌǝɹsǝp Ǝuƃʅısɥ‬"). Because only strings that are actually localized (they exist in our reference en-US FTL file and they are properly set in a `<Localized>` component) get that transformation, it is easy to spot which strings are *not* properly localized in the interface.
 
 You can read [more about pseudo-localization on Wikipedia](https://en.wikipedia.org/wiki/Pseudolocalization).
-
 
 ## Development resources
 
