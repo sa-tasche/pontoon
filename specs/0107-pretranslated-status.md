@@ -1,6 +1,6 @@
 - Feature Name: Pretranslated status
 - Created: 2020-09-21
-- Associated Bug: https://bugzilla.mozilla.org/show_bug.cgi?id=1666320
+- Associated Bug: <https://bugzilla.mozilla.org/show_bug.cgi?id=1666320>
 
 # Summary
 
@@ -11,6 +11,7 @@ Introduce a new translation status for Pretranslated strings to differentiate th
 Pretranslation is the process of using machines to translate content before it's translated by human translators. If pretranslation is enabled for the project, any newly added source string gets pretranslated using translation memory (if 100% match is found) or machine translation.
 
 Pretranslations are assigned translation status Fuzzy, which allows us to:
+
 1. Immediately send them to version control system.
 2. Make them available in the product.
 3. Inform localizers that these strings should be given another look.
@@ -25,6 +26,7 @@ We need to make pretranslation work according to all 4 items from the list above
 The obvious solution is to introduce a new "Pretranslated" translation status to differentiate pretranslated strings from Fuzzy. However, while it solves the problem, adding a new translation status also adds more data to the already condensed dashboards and increases complexity.
 
 So instead, we make the following two steps:
+
 1. Treat Gettext Fuzzy strings as Missing.
 2. Replace Fuzzy status with Pretranslated.
 
@@ -35,6 +37,7 @@ Let's have a closer look at each of them.
 We treat Gettext Fuzzy strings as Missing instead of Pretranslated on dashboards, in string list, in progress chart, i.e. everywhere.
 
 Internally, we keep using the fuzzy=True flag for Fuzzy strings, which allows us to distinct them from Missing and:
+
 1. Sync them with version control system.
 2. Run quality checks on them.
 3. Set fuzzy flag accordingly in the .po file.

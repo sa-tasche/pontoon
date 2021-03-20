@@ -1,6 +1,6 @@
 - Feature Name: Private Projects
 - Created: 2020-02-10
-- Associated Bug: https://bugzilla.mozilla.org/show_bug.cgi?id=1602490
+- Associated Bug: <https://bugzilla.mozilla.org/show_bug.cgi?id=1602490>
 
 # Summary
 
