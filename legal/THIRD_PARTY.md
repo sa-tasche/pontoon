@@ -55,7 +55,7 @@ BSD 3-Clause "New" or "Revised" License - [https://opensource.org/licenses/BSD-3
 | `source-map` | `0.5.7` | Nick Fitzgerald | [https://github.com/mozilla/source-map](https://github.com/mozilla/source-map) |
 | `source-map` | `0.6.1` | Nick Fitzgerald | [https://github.com/mozilla/source-map](https://github.com/mozilla/source-map) |
 
-#### Custom: <http://lisperator.net/uglifyjs/>
+#### Custom: http://lisperator.net/uglifyjs/
 
 | Name        | Version | Publisher | Repository                                                                 |
 | ----------- | ------- | --------- | -------------------------------------------------------------------------- |
@@ -246,6 +246,5 @@ Please send any questions or inquires to [sara.dolores@gmail.com](mailto:sara.do
 ---
 
 More Information and Contact
-
 - mitgedanken
   - [Github-Page](https://mitgedanken.github.io/)
