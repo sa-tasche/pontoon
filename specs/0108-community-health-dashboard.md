@@ -1,6 +1,6 @@
 - Feature Name: Community Health Dashboard
 - Created: 2020-10-23
-- Associated Bug: https://bugzilla.mozilla.org/show_bug.cgi?id=1672966
+- Associated Bug: <https://bugzilla.mozilla.org/show_bug.cgi?id=1672966>
 
 # Summary
 
@@ -27,6 +27,7 @@ Pie charts showing ratios of active vs. all managers, reviewers and contributors
 All managers and all reviewers are taken from the team permissions form. All contributors include all users that have ever submitted a translation for the given team, with system users like Pontoon Sync excluded.
 
 Active users within a selected time frame are defined like this:
+
 * Active managers have logged into Pontoon.
 * Active reviewers have performed a review activity (approve, unapprove, reject, or unreject a translation).
 * Active contributors have submitted a translation.
@@ -44,6 +45,7 @@ A tooltip showing the exact data at a given month appears when hovering over a c
 ## Translation activity
 
 A combination of two charts:
+
 1. A line chart showing overall completion of team projects over time.
 1. A column chart showing translation submissions over time in a stack of two columns - human translations and machinery translations (submitted as unchanged copies of suggestions from Machinery). Translation submissions also include imported translation by sync. New source string additions are plotted in a separate column, which is hidden by default.
 
@@ -54,6 +56,7 @@ A tooltip showing the exact data and ratios at a given month appears when hoveri
 ## Review activity
 
 A combination of two charts:
+
 1. A line chart showing the number of unreviewed suggestions of the team over time.
 1. A column chart showing review actions over time in a stack of three columns - peer-approvals, self-approvals (translation approvals by their authors, both at the time of submission or later) and rejections. Approvals and rejections performed by sync are excluded. New suggestion submissions are plotted in a separate column, which is hidden by default.
 

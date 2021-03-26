@@ -6,7 +6,6 @@ The API is [GraphQL](http://graphql.org/)-based and available at ``/graphql``.
 The endpoint is exempt from CSP and CSRF validation so that is can be accessed
 by third-party code with ease.
 
-
 ## Production Deployments
 
 When run in production (``DEV is False``) the API returns ``application/json``
@@ -16,15 +15,14 @@ the query must be escaped.
 An example GET requests may look like this:
 
 ```bash
-$ curl --globoff https://example.com/graphql?query={projects{name}}
+curl --globoff https://example.com/graphql?query={projects{name}}
 ```
 
 An example POST requests may look like this:
 
 ```bash
-$ curl -X POST -d "query={ projects { name } }" https://example.com/graphql
+curl -X POST -d "query={ projects { name } }" https://example.com/graphql
 ```
-
 
 ## Local Development
 
@@ -38,7 +36,7 @@ a production one, returning JSON responses.
 The following query in the CLI will return a JSON response:
 
 ```bash
-$ curl --globoff http://localhost:8000/graphql?query={projects{name}}
+curl --globoff http://localhost:8000/graphql?query={projects{name}}
 ```
 
 If however a request is sent with ``Accept: text/html`` such as is the case when
@@ -50,7 +48,6 @@ accessing the endpoint in a browser, a GUI query editor and explorer,
 To preview the JSON response in the browser, pass in the ``raw`` query argument::
 
     http://localhost:8000/graphql?query={projects{name}}&raw
-
 
 ## Query IDE
 
